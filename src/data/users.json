@@ -1,0 +1,300 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "name": "Alvaro",
+            "email": "alvaro@gmail.com",
+            "password": "1234",
+
+            "professional_status": {
+                "is_working": true,
+                "job_title": "Analista de Suporte",
+                "area": "TI",
+                "experience_time": "1 ano e 6 meses"
+            },
+
+            "work_experiences": [
+                {
+                    "id": 1,
+                    "role": "Analista de Suporte N1",
+                    "company": "Tech Solutions LTDA",
+                    "start_date": "2023-01-01",
+                    "end_date": null,
+                    "description": "Atendimento a usuários, manutenção de computadores e suporte remoto."
+                },
+                {
+                    "id": 2,
+                    "role": "Estagiário de TI",
+                    "company": "Colégio Nova Era",
+                    "start_date": "2022-02-01",
+                    "end_date": "2022-12-01",
+                    "description": "Auxílio na manutenção da infraestrutura de TI."
+                }
+            ],
+
+            "formations": [
+                {
+                    "id": 1,
+                    "name": "Licenciatura em Computação",
+                    "grade": "Licenciatura",
+                    "institution": "Universidade Federal do Paraná",
+                    "start_year": 2019,
+                    "end_year": 2023
+                },
+                {
+                    "id": 2,
+                    "name": "Engenharia da Computação",
+                    "grade": "Bacharel",
+                    "institution": "UTFPR",
+                    "start_year": 2024,
+                    "end_year": null
+                }
+            ],
+
+            "courses": [
+                {
+                    "id": 1,
+                    "name": "Montagem e Manutenção de Computadores",
+                    "description": "Curso completo de hardware e manutenção.",
+                    "duration": "40h",
+                    "platform": "Senai"
+                },
+                {
+                    "id": 2,
+                    "name": "Linux Fundamentals",
+                    "description": "Fundamentos do Linux e linha de comando.",
+                    "duration": "20h",
+                    "platform": "Alura"
+                }
+            ],
+
+            "languages": [
+                { "id": 1, "name": "Inglês", "level": "Intermediário" },
+                { "id": 2, "name": "Espanhol", "level": "Básico" }
+            ],
+
+            "soft_skills": [
+                "Comunicação",
+                "Organização",
+                "Trabalho em equipe",
+                "Pensamento crítico"
+            ],
+
+            "professional_goals": [
+                { "id": 1, "goal": "Tornar-se DevOps pleno em 2 anos." },
+                { "id": 2, "goal": "Trabalhar em empresa internacional." }
+            ],
+
+            "next_steps": [
+                { "id": 1, "progress": 50, "title": "Estudar Docker", "deadline": "2025-11-30" },
+                { "id": 2, "progress": 10, "title": "Criar portfólio DevOps", "deadline": "2025-12-15" }
+            ],
+
+            "roadmaps": [
+                {
+                    "id": 1,
+                    "name": "Como se tornar DevOps",
+                    "milestones": [
+                        { "id": 1, "name": "Aprender Docker", "completed": false },
+                        { "id": 2, "name": "Aprender AWS", "completed": false },
+                        { "id": 3, "name": "Aprender CI/CD", "completed": false }
+                    ]
+                }
+            ],
+
+            "achievements": [
+                { "id": 1, "name": "Primeiro deploy com Docker", "date": "2025-01-10" }
+            ],
+
+            "notifications": [
+                { "id": 1, "message": "Novo passo sugerido: Kubernetes.", "read": false }
+            ],
+
+            "updated_at": "2025-11-21T23:00:00"
+        },
+
+        {
+            "id": 2,
+            "name": "Mariana Silva",
+            "email": "mariana.silva@gmail.com",
+            "password": "abcd1234",
+
+            "professional_status": {
+                "is_working": false,
+                "job_title": null,
+                "area": "Desempregada",
+                "experience_time": "0 anos"
+            },
+
+            "work_experiences": [],
+
+            "formations": [
+                {
+                    "id": 1,
+                    "name": "Design Gráfico",
+                    "grade": "Tecnólogo",
+                    "institution": "Universidade Positivo",
+                    "start_year": 2021,
+                    "end_year": 2023
+                }
+            ],
+
+            "courses": [
+                {
+                    "id": 1,
+                    "name": "UX/UI Design",
+                    "description": "Fundamentos de experiência do usuário.",
+                    "duration": "30h",
+                    "platform": "Coursera"
+                },
+                {
+                    "id": 2,
+                    "name": "Illustrator Avançado",
+                    "description": "Criação de ilustrações profissionais.",
+                    "duration": "15h",
+                    "platform": "Domestika"
+                }
+            ],
+
+            "languages": [
+                { "id": 1, "name": "Português", "level": "Nativo" },
+                { "id": 2, "name": "Inglês", "level": "Intermediário" }
+            ],
+
+            "soft_skills": [
+                "Criatividade",
+                "Empatia",
+                "Comunicação",
+                "Resolução de problemas"
+            ],
+
+            "professional_goals": [
+                { "id": 1, "goal": "Trabalhar como UX Designer." }
+            ],
+
+            "next_steps": [
+                { "id": 1, "progress": 20, "title": "Criar portfólio UX", "deadline": "2025-12-30" }
+            ],
+
+            "roadmaps": [
+                {
+                    "id": 1,
+                    "name": "Tornar-se UX Designer",
+                    "milestones": [
+                        { "id": 1, "name": "Aprender heurísticas", "completed": false },
+                        { "id": 2, "name": "Criar protótipos no Figma", "completed": false }
+                    ]
+                }
+            ],
+
+            "achievements": [],
+
+            "notifications": [],
+
+            "updated_at": "2025-11-21T23:02:00"
+        },
+
+        {
+            "id": 3,
+            "name": "Carlos Eduardo",
+            "email": "carlosedu@gmail.com",
+            "password": "pass123",
+
+            "professional_status": {
+                "is_working": true,
+                "job_title": "Desenvolvedor Backend Júnior",
+                "area": "Desenvolvimento",
+                "experience_time": "2 anos"
+            },
+
+            "work_experiences": [
+                {
+                    "id": 1,
+                    "role": "Desenvolvedor Backend",
+                    "company": "InovaTech",
+                    "start_date": "2024-03-01",
+                    "end_date": null,
+                    "description": "Criação de APIs, otimização de banco de dados e desenvolvimento em Node.js."
+                },
+                {
+                    "id": 2,
+                    "role": "Estagiário Backend",
+                    "company": "CodeFactory",
+                    "start_date": "2023-01-01",
+                    "end_date": "2024-02-01",
+                    "description": "Desenvolvimento de scripts e manutenção de sistemas internos."
+                }
+            ],
+
+            "formations": [
+                {
+                    "id": 1,
+                    "name": "Análise e Desenvolvimento de Sistemas",
+                    "grade": "Tecnólogo",
+                    "institution": "Estácio",
+                    "start_year": 2022,
+                    "end_year": null
+                }
+            ],
+
+            "courses": [
+                {
+                    "id": 1,
+                    "name": "Node.js Avançado",
+                    "description": "Criação de APIs REST e GraphQL.",
+                    "duration": "40h",
+                    "platform": "Rocketseat"
+                },
+                {
+                    "id": 2,
+                    "name": "Banco de Dados SQL",
+                    "description": "Modelagem e consultas avançadas.",
+                    "duration": "25h",
+                    "platform": "Alura"
+                }
+            ],
+
+            "languages": [
+                { "id": 1, "name": "Português", "level": "Nativo" },
+                { "id": 2, "name": "Inglês", "level": "Avançado" }
+            ],
+
+            "soft_skills": [
+                "Raciocínio lógico",
+                "Proatividade",
+                "Gestão de tempo"
+            ],
+
+            "professional_goals": [
+                { "id": 1, "goal": "Tornar-se desenvolvedor Sênior." },
+                { "id": 2, "goal": "Aprender Go e Rust." }
+            ],
+
+            "next_steps": [
+                { "id": 1, "progress": 70, "title": "Estudar padrões de projeto", "deadline": "2025-11-28" },
+                { "id": 2, "progress": 10, "title": "Aprender Docker", "deadline": "2025-12-20" }
+            ],
+
+            "roadmaps": [
+                {
+                    "id": 1,
+                    "name": "Crescimento Backend",
+                    "milestones": [
+                        { "id": 1, "name": "Estudar arquitetura limpa", "completed": false },
+                        { "id": 2, "name": "Aprender testes automatizados", "completed": false }
+                    ]
+                }
+            ],
+
+            "achievements": [
+                { "id": 1, "name": "Lançou sua primeira API pública", "date": "2025-01-05" }
+            ],
+
+            "notifications": [
+                { "id": 1, "message": "Seu curso de SQL está com 80% concluído.", "read": false }
+            ],
+
+            "updated_at": "2025-11-21T23:05:00"
+        }
+    ]
+}

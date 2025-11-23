@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Button } from "../ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../ui/card";
 import { Input } from "../ui/input";
@@ -7,25 +7,43 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
 import { GraduationCap } from "lucide-react";
 import { toast } from "sonner@2.0.3";
 
+//Context de autenticação
+import { useAuth } from "@/context/AuthContext";
+//Context de usuários
+import { useUserContext } from "@/context/UserContext";
+
 interface AuthProps {
   onNavigate?: (path: string) => void;
   onLogin?: () => void;
 }
 
 export function Auth({ onNavigate, onLogin }: AuthProps) {
+  const { user, signed, login } = useAuth();
+  const users = useUserContext();
+
   const [loginData, setLoginData] = useState({ email: "", password: "" });
-  const [signupData, setSignupData] = useState({ 
-    name: "", 
-    email: "", 
-    password: "", 
-    confirmPassword: "" 
+  const [signupData, setSignupData] = useState({
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: ""
   });
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success("Login realizado com sucesso!");
-    onLogin?.();
-    onNavigate?.('/onboarding');
+
+    const foundUser = users.find(
+      (u) => u.email === loginData.email && u.password === loginData.password
+    );
+
+    if (foundUser) {
+      login(foundUser);
+      toast.success("Login realizado com sucesso!");
+      onLogin?.();
+      onNavigate?.('/onboarding');
+    } else {
+      toast.error("Email ou senha incorretos!");
+    }
   };
 
   const handleSignup = (e: React.FormEvent) => {
