@@ -4,7 +4,8 @@ import {
     BookOpen,
     Award,
     TrendingUp,
-    GraduationCap
+    GraduationCap,
+    BookMarked
 } from "lucide-react";
 import { Link, Outlet } from "react-router-dom";
 
@@ -13,12 +14,13 @@ const menuItems = [
     { icon: Target, label: "Minhas Trilhas", active: false, path: "/workflows" },
     { icon: BookOpen, label: "Cursos", active: false, path: "/courses" },
     { icon: Award, label: "Conquistas", active: false, path: "/achievements" },
-    { icon: TrendingUp, label: "Progresso", active: false, path: "/progress" }
+    { icon: TrendingUp, label: "Progresso", active: false, path: "/progress" },
+    { icon: BookMarked, label: "Meu Currículo", active: false, path: "/resume-review" },
 ];
 
 export const AppLayout = () => {
     return (
-        <div className="min-h-screen bg-background">
+        <div className="relative z-0 min-h-screen bg-background">
             <div className="flex">
                 {/* Sidebar */}
                 <aside className="w-64 border-r bg-card min-h-screen p-6 hidden lg:block">
@@ -48,7 +50,7 @@ export const AppLayout = () => {
                 </aside>
 
                 {/* Main Content */}
-                <main className="flex-1 p-6 lg:p-8">
+                <main className="flex-1 p-6 lg:p-8 relative z-auto">
                     <Outlet />
                 </main>
             </div>

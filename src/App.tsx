@@ -27,7 +27,6 @@ function AppContent() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/onboarding" element={<OnboardingForm onNavigate={handleNavigate} />} />
           <Route path="/resume-builder" element={<ResumeBuilder onNavigate={handleNavigate} />} />
-          <Route path="/resume-review" element={<ResumeReview onNavigate={handleNavigate} />} />
         </Route>
 
         <Route path="/auth" element={<Auth onNavigate={handleNavigate} />} />
@@ -38,6 +37,7 @@ function AppContent() {
           <Route path="/achievements" element={<AchievementsPage onNavigate={handleNavigate} />} />
           <Route path="/progress" element={<ProgressPage onNavigate={handleNavigate} />} />
           <Route path="/workflows" element={<Workflows onNavigate={handleNavigate} />} />
+          <Route path="/resume-review" element={<ResumeReview onNavigate={handleNavigate} />} />
         </Route>
 
       </Routes>
