@@ -10,6 +10,7 @@ import { ResumeReview } from "./components/pages/ResumeReview";
 import { Toaster } from "./components/ui/sonner";
 import { GlobalProviders } from "./context/Providers";
 import { AppLayout } from "./layout/AppLayout";
+import Workflows from "./components/pages/Workflows";
 
 function AppContent() {
   const navigate = useNavigate();
@@ -24,6 +25,7 @@ function AppContent() {
           <Route path="/onboarding" element={<OnboardingForm onNavigate={handleNavigate} />} />
           <Route path="/resume-builder" element={<ResumeBuilder onNavigate={handleNavigate} />} />
           <Route path="/resume-review" element={<ResumeReview onNavigate={handleNavigate} />} />
+          <Route path="/workflows" element={<Workflows onNavigate={handleNavigate} />} />
         </Route>
 
         <Route path="/auth" element={<Auth onNavigate={handleNavigate} />} />

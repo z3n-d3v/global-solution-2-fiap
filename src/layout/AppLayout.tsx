@@ -10,7 +10,7 @@ import { Link, Outlet } from "react-router-dom";
 
 const menuItems = [
     { icon: LayoutDashboard, label: "Dashboard", active: true, path: "/dashboard" },
-    { icon: Target, label: "Minhas Trilhas", active: false, path: "" },
+    { icon: Target, label: "Minhas Trilhas", active: false, path: "/workflows" },
     { icon: BookOpen, label: "Cursos", active: false, path: "/courses" },
     { icon: Award, label: "Conquistas", active: false, path: "" },
     { icon: TrendingUp, label: "Progresso", active: false, path: "" }
