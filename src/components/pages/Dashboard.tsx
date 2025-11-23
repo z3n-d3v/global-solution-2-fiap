@@ -76,7 +76,7 @@ export function Dashboard() {
     }
   ];
 
-  const nextSteps = currentUser.next_steps;
+  const nextSteps = currentUser?.next_steps;
   `{const nextSteps = [
     { task: "Concluir módulo 'Python Avançado'", progress: 65, dueDate: "Em 5 dias" },
     { task: "Iniciar projeto prático de API", progress: 0, dueDate: "Em 1 semana" },
@@ -96,7 +96,7 @@ export function Dashboard() {
         {/* Header */}
         <div>
           <h1 className="text-4xl text-primary mb-2">
-            Bem-vindo de volta, {currentUser.name}!
+            Bem-vindo de volta, {currentUser?.name}!
           </h1>
           <p className="text-muted-foreground">
             Veja seu progresso e continue sua jornada de aprendizado
@@ -105,7 +105,7 @@ export function Dashboard() {
 
         {/* Metrics Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {metrics.map((metric, index) => (
+          {metrics && metrics.map((metric, index) => (
             <Card key={index}>
               <CardContent className="p-6">
                 <div className="flex items-center justify-between">
@@ -132,7 +132,7 @@ export function Dashboard() {
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
-            {aiFeedback.map((feedback, index) => (
+            {aiFeedback && aiFeedback.map((feedback, index) => (
               <div
                 key={index}
                 className={`p-4 rounded-lg border-l-4 ${feedback.type === 'success'
@@ -203,7 +203,7 @@ export function Dashboard() {
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-6">
-            {nextSteps.map((step, index) => (
+            {nextSteps && nextSteps.map((step, index) => (
               <div key={index} className="space-y-2">
                 <div className="flex justify-between items-start">
                   <div className="flex-1">
