@@ -7,7 +7,6 @@ import { OnboardingForm } from "./components/pages/OnboardingForm";
 import { Dashboard } from "./components/pages/Dashboard";
 import { ResumeBuilder } from "./components/pages/ResumeBuilder";
 import { ResumeReview } from "./components/pages/ResumeReview";
-import { Courses } from "./components/pages/Courses";
 import { Toaster } from "./components/ui/sonner";
 import { GlobalProviders } from "./context/Providers";
 import { AppLayout } from "./layout/AppLayout";
@@ -31,7 +30,6 @@ function AppContent() {
 
         <Route element={<AppLayout />}>
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/courses" element={<Courses />} />
         </Route>
 
       </Routes>
