@@ -9,7 +9,7 @@ import { Dashboard } from "./components/pages/Dashboard";
 import { ResumeBuilder } from "./components/pages/ResumeBuilder";
 import { ResumeReview } from "./components/pages/ResumeReview";
 import { Toaster } from "./components/ui/sonner";
-import { GlobalProvaiders } from "./context/Provaiders";
+import { GlobalProviders } from "./context/Providers";
 
 function AppContent() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -24,7 +24,7 @@ function AppContent() {
   };
 
   return (
-    <GlobalProvaiders>
+    <GlobalProviders>
       <div className="min-h-screen">
         <Routes>
           <Route
@@ -90,7 +90,7 @@ function AppContent() {
         </Routes>
         <Toaster position="top-right" />
       </div>
-    </GlobalProvaiders>
+    </GlobalProviders>
   );
 }
 
