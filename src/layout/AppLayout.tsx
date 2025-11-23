@@ -6,7 +6,7 @@ import {
     TrendingUp,
     GraduationCap
 } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 const menuItems = [
     { icon: LayoutDashboard, label: "Dashboard", active: true, path: "/dashboard" },
@@ -16,7 +16,7 @@ const menuItems = [
     { icon: TrendingUp, label: "Progresso", active: false, path: "" }
 ];
 
-export const AppLayout = ({ children }) => {
+export const AppLayout = () => {
     return (
         <div className="min-h-screen bg-background">
             <div className="flex">
@@ -49,7 +49,7 @@ export const AppLayout = ({ children }) => {
 
                 {/* Main Content */}
                 <main className="flex-1 p-6 lg:p-8">
-                    {children}
+                    <Outlet />
                 </main>
             </div>
         </div>

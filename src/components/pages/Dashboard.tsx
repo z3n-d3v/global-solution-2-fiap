@@ -91,7 +91,7 @@ export function Dashboard() {
   ];
 
   return (
-    <AppLayout>
+    <>
       <div className="max-w-7xl mx-auto space-y-8">
         {/* Header */}
         <div>
@@ -254,6 +254,6 @@ export function Dashboard() {
           </CardContent>
         </Card>
       </div>
-    </AppLayout>
+    </>
   );
 }
