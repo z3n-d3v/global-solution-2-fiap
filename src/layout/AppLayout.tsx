@@ -13,7 +13,7 @@ const menuItems = [
     { icon: Target, label: "Minhas Trilhas", active: false, path: "/workflows" },
     { icon: BookOpen, label: "Cursos", active: false, path: "/courses" },
     { icon: Award, label: "Conquistas", active: false, path: "/achievements" },
-    { icon: TrendingUp, label: "Progresso", active: false, path: "" }
+    { icon: TrendingUp, label: "Progresso", active: false, path: "/progress" }
 ];
 
 export const AppLayout = () => {
