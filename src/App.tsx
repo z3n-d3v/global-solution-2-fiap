@@ -13,6 +13,7 @@ import { Dashboard } from "./components/pages/Dashboard";
 import { Courses } from "./components/pages/Courses";
 import Workflows from "./components/pages/Workflows";
 import { AchievementsPage } from "./components/pages/Achievements";
+import { ProgressPage } from "./components/pages/ProgressPage";
 
 function AppContent() {
   const navigate = useNavigate();
@@ -32,9 +33,10 @@ function AppContent() {
         <Route path="/auth" element={<Auth onNavigate={handleNavigate} />} />
 
         <Route element={<AppLayout />}>
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/courses" element={<Courses />} />
-          <Route path="/achievements" element={<AchievementsPage />} />
+          <Route path="/dashboard" element={<Dashboard onNavigate={handleNavigate} />} />
+          <Route path="/courses" element={<Courses onNavigate={handleNavigate} />} />
+          <Route path="/achievements" element={<AchievementsPage onNavigate={handleNavigate} />} />
+          <Route path="/progress" element={<ProgressPage onNavigate={handleNavigate} />} />
           <Route path="/workflows" element={<Workflows onNavigate={handleNavigate} />} />
         </Route>
 
