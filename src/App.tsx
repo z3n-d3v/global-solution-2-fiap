@@ -1,15 +1,16 @@
 import { HashRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
+import { Toaster } from "./components/ui/sonner";
+import { GlobalProviders } from "./context/Providers";
+import { AppLayout } from "./layout/AppLayout";
 import { SiteLayout } from "./layout/SiteLayout";
 import { Home } from "./components/pages/Home";
 import { Contact } from "./components/pages/Contact";
 import { Auth } from "./components/pages/Auth";
 import { OnboardingForm } from "./components/pages/OnboardingForm";
-import { Dashboard } from "./components/pages/Dashboard";
 import { ResumeBuilder } from "./components/pages/ResumeBuilder";
 import { ResumeReview } from "./components/pages/ResumeReview";
-import { Toaster } from "./components/ui/sonner";
-import { GlobalProviders } from "./context/Providers";
-import { AppLayout } from "./layout/AppLayout";
+import { Dashboard } from "./components/pages/Dashboard";
+import { Courses } from "./components/pages/Courses";
 import Workflows from "./components/pages/Workflows";
 
 function AppContent() {
@@ -32,6 +33,7 @@ function AppContent() {
 
         <Route element={<AppLayout />}>
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/courses" element={<Courses />} />
         </Route>
 
       </Routes>
