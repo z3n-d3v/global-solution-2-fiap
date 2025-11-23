@@ -1,8 +1,8 @@
-import { 
-  LayoutDashboard, 
-  Target, 
-  BookOpen, 
-  Award, 
+import {
+  LayoutDashboard,
+  Target,
+  BookOpen,
+  Award,
   TrendingUp,
   Clock,
   CheckCircle2,
@@ -26,7 +26,11 @@ import {
   Line
 } from "recharts";
 
+import { useCurrentUserData } from "@/hooks/useCurrentUserData";
+
 export function Dashboard() {
+  const currentUser = useCurrentUserData();
+
   const weeklyProgress = [
     { day: "Seg", hours: 2 },
     { day: "Ter", hours: 3 },
@@ -71,11 +75,12 @@ export function Dashboard() {
     }
   ];
 
-  const nextSteps = [
+  const nextSteps = currentUser.next_steps;
+  `{const nextSteps = [
     { task: "Concluir módulo 'Python Avançado'", progress: 65, dueDate: "Em 5 dias" },
     { task: "Iniciar projeto prático de API", progress: 0, dueDate: "Em 1 semana" },
     { task: "Revisar fundamentos de SQL", progress: 40, dueDate: "Em 10 dias" }
-  ];
+  ];}`
 
   const metrics = [
     { label: "Horas de Estudo", value: "87h", icon: Clock, color: "text-blue-600" },
@@ -93,11 +98,10 @@ export function Dashboard() {
             {menuItems.map((item, index) => (
               <button
                 key={index}
-                className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${
-                  item.active
+                className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${item.active
                     ? 'bg-primary text-primary-foreground'
                     : 'hover:bg-accent text-foreground'
-                }`}
+                  }`}
               >
                 <item.icon className="h-5 w-5" />
                 <span>{item.label}</span>
@@ -112,7 +116,7 @@ export function Dashboard() {
             {/* Header */}
             <div>
               <h1 className="text-4xl text-primary mb-2">
-                Bem-vindo de volta, João!
+                Bem-vindo de volta, {currentUser.name}!
               </h1>
               <p className="text-muted-foreground">
                 Veja seu progresso e continue sua jornada de aprendizado
@@ -151,13 +155,12 @@ export function Dashboard() {
                 {aiFeedback.map((feedback, index) => (
                   <div
                     key={index}
-                    className={`p-4 rounded-lg border-l-4 ${
-                      feedback.type === 'success'
+                    className={`p-4 rounded-lg border-l-4 ${feedback.type === 'success'
                         ? 'bg-green-50 border-green-500'
                         : feedback.type === 'warning'
-                        ? 'bg-yellow-50 border-yellow-500'
-                        : 'bg-blue-50 border-blue-500'
-                    }`}
+                          ? 'bg-yellow-50 border-yellow-500'
+                          : 'bg-blue-50 border-blue-500'
+                      }`}
                   >
                     <h4 className="text-primary mb-1">{feedback.title}</h4>
                     <p className="text-muted-foreground">{feedback.message}</p>
@@ -198,10 +201,10 @@ export function Dashboard() {
                       <XAxis dataKey="month" />
                       <YAxis />
                       <Tooltip />
-                      <Line 
-                        type="monotone" 
-                        dataKey="nivel" 
-                        stroke="#102C57" 
+                      <Line
+                        type="monotone"
+                        dataKey="nivel"
+                        stroke="#102C57"
                         strokeWidth={3}
                         dot={{ fill: '#102C57', r: 5 }}
                       />
@@ -224,10 +227,10 @@ export function Dashboard() {
                   <div key={index} className="space-y-2">
                     <div className="flex justify-between items-start">
                       <div className="flex-1">
-                        <h4 className="text-primary mb-1">{step.task}</h4>
+                        <h4 className="text-primary mb-1">{step.title}</h4>
                         <div className="flex items-center gap-2 text-muted-foreground">
                           <Calendar className="h-4 w-4" />
-                          <span>{step.dueDate}</span>
+                          <span>{step.deadline}</span>
                         </div>
                       </div>
                       <Button variant="outline" size="sm" className="gap-2">
