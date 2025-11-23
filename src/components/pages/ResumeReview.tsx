@@ -15,6 +15,7 @@ import {
   MessageSquare
 } from "lucide-react";
 import { toast } from "sonner@2.0.3";
+import { useCurrentUserData } from "@/hooks/useCurrentUserData";
 
 interface ResumeReviewProps {
   onNavigate?: (path: string) => void;
@@ -22,13 +23,15 @@ interface ResumeReviewProps {
 
 export function ResumeReview({ onNavigate }: ResumeReviewProps) {
   const [activeSection, setActiveSection] = useState<string>("header");
+  const userContext = useCurrentUserData();
 
+  console.log(userContext)
   // Mock do currículo gerado pela IA
   const generatedResume = {
     header: {
-      name: "João Silva Santos",
-      contact: "joao.silva@email.com | (11) 98765-4321 | São Paulo, SP",
-      links: "linkedin.com/in/joaosilva | github.com/joaosilva",
+      name: userContext.name,
+      contact: `${userContext.email} | ${userContext.phone} | ${userContext.address.state}`,
+      links: `linkedin.com/in/${userContext.abbr} | github.com/${userContext.abbr}`,
       aiExplanation: "Organizei suas informações de contato de forma clara e ATS-friendly. Usei formatação simples para garantir que sistemas automatizados possam ler facilmente."
     },
     summary: {

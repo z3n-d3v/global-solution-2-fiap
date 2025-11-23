@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { 
-  BookOpen, 
-  Plus, 
-  Edit, 
-  Trash2, 
+import {
+  BookOpen,
+  Plus,
+  Edit,
+  Trash2,
   ExternalLink,
   Sparkles,
   GraduationCap,
@@ -11,16 +11,20 @@ import {
   TrendingUp,
   LayoutDashboard,
   Award,
-  LogOut
+  LogOut,
+  ChevronDown,
+  ChevronRight
 } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../ui/card";
 import { Button } from "../ui/button";
 import { Badge } from "../ui/badge";
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "../ui/dialog";
+// import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "../ui/dialog";
 import { Input } from "../ui/input";
 import { Label } from "../ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui/select";
 import { toast } from "sonner";
+import { Dialog } from "../ui/modal";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "../ui/collapsible";
 
 interface Course {
   id: string;
@@ -124,7 +128,7 @@ export function Courses({ onNavigate }: CoursesProps) {
         link: ""
       });
     }
-    setIsDialogOpen(true);
+    setIsDialogOpen(!isDialogOpen);
   };
 
   const handleSaveCourse = () => {
@@ -134,8 +138,8 @@ export function Courses({ onNavigate }: CoursesProps) {
     }
 
     if (editingCourse) {
-      setCourses(courses.map(c => 
-        c.id === editingCourse.id 
+      setCourses(courses.map(c =>
+        c.id === editingCourse.id
           ? { ...c, ...formData }
           : c
       ));
@@ -195,9 +199,9 @@ export function Courses({ onNavigate }: CoursesProps) {
   };
 
   const getCategoryIcon = (category: string) => {
-    if (category.toLowerCase().includes("programação")) return Target;
-    if (category.toLowerCase().includes("data")) return TrendingUp;
-    if (category.toLowerCase().includes("design")) return BookOpen;
+    if (category?.toLowerCase().includes("programação")) return Target;
+    if (category?.toLowerCase().includes("data")) return TrendingUp;
+    if (category?.toLowerCase().includes("design")) return BookOpen;
     return GraduationCap;
   };
 
@@ -219,18 +223,17 @@ export function Courses({ onNavigate }: CoursesProps) {
               <button
                 key={index}
                 onClick={() => item.path && onNavigate?.(item.path)}
-                className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${
-                  item.active
-                    ? 'bg-primary text-primary-foreground'
-                    : 'hover:bg-accent text-foreground'
-                }`}
+                className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${item.active
+                  ? 'bg-primary text-primary-foreground'
+                  : 'hover:bg-accent text-foreground'
+                  }`}
               >
                 <item.icon className="h-5 w-5" />
                 <span>{item.label}</span>
               </button>
             ))}
           </div>
-          
+
           <div className="pt-4 border-t">
             <button
               onClick={() => onNavigate?.('/')}
@@ -253,106 +256,138 @@ export function Courses({ onNavigate }: CoursesProps) {
                   Gerencie os cursos que você já fez ou deseja fazer para evoluir na sua carreira
                 </p>
               </div>
-              <Dialog open={isDialogOpen}>
-                <DialogTrigger asChild>
-                  <Button size="lg" className="gap-2" >
-                    <Plus className="h-5 w-5" />
-                    Adicionar Curso
-                  </Button>
-                </DialogTrigger>
-                <DialogContent className="max-w-2xl">
-                  <DialogHeader>
-                    <DialogTitle className="text-primary">
-                      {editingCourse ? "Editar Curso" : "Adicionar Novo Curso"}
-                    </DialogTitle>
-                    <DialogDescription>
-                      Preencha as informações do curso abaixo
-                    </DialogDescription>
-                  </DialogHeader>
-                  {/* <div className="space-y-4 py-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="name">Nome do Curso *</Label>
-                      <Input
-                        id="name"
-                        placeholder="Ex: React Completo - Do Básico ao Avançado"
-                        value={formData.name}
-                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="institution">Instituição ou Plataforma *</Label>
-                      <Input
-                        id="institution"
-                        placeholder="Ex: Udemy, Coursera, Alura"
-                        value={formData.institution}
-                        onChange={(e) => setFormData({ ...formData, institution: e.target.value })}
-                      />
-                    </div>
-                    <div className="grid md:grid-cols-2 gap-4">
+            </div>
+
+            <Collapsible
+              open={isDialogOpen}
+              onOpenChange={setIsDialogOpen}
+              className="w-full border border-border rounded-xl"
+            >
+              {/* Header */}
+              <CollapsibleTrigger className="w-full flex items-center justify-between p-4 cursor-pointer hover:bg-accent rounded-xl transition">
+                <span className="text-base font-medium">Criar novo Curso</span>
+
+                {open ? (
+                  <ChevronDown className="h-5 w-5 transition-transform" />
+                ) : (
+                  <ChevronRight className="h-5 w-5 transition-transform" />
+                )}
+              </CollapsibleTrigger>
+
+              {/* Content */}
+              <CollapsibleContent
+                className="
+          overflow-hidden
+          data-[state=open]:animate-slideDown 
+          data-[state=closed]:animate-slideUp
+        "
+              >
+                <div className="p-4 flex flex-col gap-4">
+                  {/* Form */}
+                  <Card className="p-4">
+
+                    <div className="space-y-4 py-4">
                       <div className="space-y-2">
-                        <Label htmlFor="category">Categoria / Área *</Label>
+                        <Label htmlFor="name">Nome do Curso *</Label>
                         <Input
-                          id="category"
-                          placeholder="Ex: Programação, UX, Data Science"
-                          value={formData.category}
-                          onChange={(e) => setFormData({ ...formData, category: e.target.value })}
+                          id="name"
+                          placeholder="Ex: React Completo - Do Básico ao Avançado"
+                          value={formData.name}
+                          required
+                          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         />
                       </div>
                       <div className="space-y-2">
-                        <Label htmlFor="level">Nível</Label>
+                        <Label htmlFor="institution">Instituição ou Plataforma *</Label>
+                        <Input
+                          id="institution"
+                          placeholder="Ex: Udemy, Coursera, Alura"
+                          value={formData.institution}
+                          onChange={(e) => setFormData({ ...formData, institution: e.target.value })}
+                          required
+                        />
+                      </div>
+                      <div className="grid md:grid-cols-2 gap-4">
+                        <div className="space-y-2">
+                          <Label htmlFor="category">Categoria / Área *</Label>
+                          <Input
+                            id="category"
+                            placeholder="Ex: Programação, UX, Data Science"
+                            value={formData.category}
+                            onChange={(e) => setFormData({ ...formData, category: e.target.value })}
+                            required
+                          />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="level">Nível</Label>
+                          <Select
+                            value={formData.level}
+                            onValueChange={(value: Course["level"]) => setFormData({ ...formData, level: value })}
+                            required
+                          >
+                            <SelectTrigger id="level">
+                              <SelectValue />
+                            </SelectTrigger>
+                            <SelectContent>
+                              <SelectItem value="iniciante">Iniciante</SelectItem>
+                              <SelectItem value="intermediário">Intermediário</SelectItem>
+                              <SelectItem value="avançado">Avançado</SelectItem>
+                            </SelectContent>
+                          </Select>
+                        </div>
+                      </div>
+                      <div className="space-y-2">
+                        <Label htmlFor="status">Status</Label>
                         <Select
-                          value={formData.level}
-                          onValueChange={(value: Course["level"]) => setFormData({ ...formData, level: value })}
+                          value={formData.status}
+                          onValueChange={(value: Course["status"]) => setFormData({ ...formData, status: value })}
+                          required
                         >
-                          <SelectTrigger id="level">
+                          <SelectTrigger id="status">
                             <SelectValue />
                           </SelectTrigger>
                           <SelectContent>
-                            <SelectItem value="iniciante">Iniciante</SelectItem>
-                            <SelectItem value="intermediário">Intermediário</SelectItem>
-                            <SelectItem value="avançado">Avançado</SelectItem>
+                            <SelectItem value="concluído">Concluído</SelectItem>
+                            <SelectItem value="em andamento">Em Andamento</SelectItem>
+                            <SelectItem value="desejado">Desejado</SelectItem>
                           </SelectContent>
                         </Select>
                       </div>
+                      <div className="space-y-2">
+                        <Label htmlFor="link">Link do Curso (opcional)</Label>
+                        <Input
+                          id="link"
+                          type="url"
+                          placeholder="https://..."
+                          value={formData.link}
+                          required
+                          onChange={(e) => setFormData({ ...formData, link: e.target.value })}
+                        />
+                      </div>
                     </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="status">Status</Label>
-                      <Select
-                        value={formData.status}
-                        onValueChange={(value: Course["status"]) => setFormData({ ...formData, status: value })}
-                      >
-                        <SelectTrigger id="status">
-                          <SelectValue />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="concluído">Concluído</SelectItem>
-                          <SelectItem value="em andamento">Em Andamento</SelectItem>
-                          <SelectItem value="desejado">Desejado</SelectItem>
-                        </SelectContent>
-                      </Select>
+                    <div className="flex justify-end gap-3">
+                      <Button variant="outline" onClick={() => setIsDialogOpen(false)}>
+                        Cancelar
+                      </Button>
+                      <Button onClick={handleSaveCourse}>
+                        {editingCourse ? "Salvar Alterações" : "Salvar Curso"}
+                      </Button>
                     </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="link">Link do Curso (opcional)</Label>
-                      <Input
-                        id="link"
-                        type="url"
-                        placeholder="https://..."
-                        value={formData.link}
-                        onChange={(e) => setFormData({ ...formData, link: e.target.value })}
-                      />
-                    </div>
-                  </div>
-                  <div className="flex justify-end gap-3">
-                    <Button variant="outline" onClick={() => setIsDialogOpen(false)}>
-                      Cancelar
-                    </Button>
-                    <Button onClick={handleSaveCourse}>
-                      {editingCourse ? "Salvar Alterações" : "Salvar Curso"}
-                    </Button>
-                  </div> */}
-                </DialogContent>
-              </Dialog>
-            </div>
+                  </Card>
+                </div>
+
+              </CollapsibleContent>
+            </Collapsible>
+
+
+            {/* <Dialog.Close>
+              <Button variant="soft" color="gray">
+                Cancel
+              </Button>
+            </Dialog.Close>
+            <Dialog.Close>
+              <Button>Save</Button>
+            </Dialog.Close> */}
 
             {/* Courses List */}
             <Card>
@@ -387,7 +422,7 @@ export function Courses({ onNavigate }: CoursesProps) {
                 ) : (
                   <div className="space-y-4">
                     {courses.map((course) => {
-                      const CategoryIcon = getCategoryIcon(course.category);
+                      const CategoryIcon = getCategoryIcon(course?.category || `none`);
                       return (
                         <Card key={course.id} className="hover:shadow-md transition-shadow">
                           <CardContent className="p-6">
@@ -517,7 +552,7 @@ export function Courses({ onNavigate }: CoursesProps) {
             </Card>
           </div>
         </main>
-      </div>
-    </div>
+      </div >
+    </div >
   );
 }
