@@ -12,7 +12,7 @@ const menuItems = [
     { icon: LayoutDashboard, label: "Dashboard", active: true, path: "/dashboard" },
     { icon: Target, label: "Minhas Trilhas", active: false, path: "/workflows" },
     { icon: BookOpen, label: "Cursos", active: false, path: "/courses" },
-    { icon: Award, label: "Conquistas", active: false, path: "" },
+    { icon: Award, label: "Conquistas", active: false, path: "/achievements" },
     { icon: TrendingUp, label: "Progresso", active: false, path: "" }
 ];
 

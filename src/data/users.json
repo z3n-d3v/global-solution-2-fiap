@@ -103,7 +103,36 @@
             ],
 
             "achievements": [
-                { "id": 1, "name": "Primeiro deploy com Docker", "date": "2025-01-10" }
+                {
+                    "id": "1",
+                    "courseName": "Fundamentos de Linux",
+                    "description": "Primeiros comandos e gerenciamento do sistema",
+                    "category": "DevOps",
+                    "hours": 12,
+                    "completedDate": "10/01/2025",
+                    "icon": "medal",
+                    "level": "iniciante"
+                },
+                {
+                    "id": "2",
+                    "courseName": "Docker Essentials",
+                    "description": "Criação e gerenciamento de containers",
+                    "category": "DevOps",
+                    "hours": 20,
+                    "completedDate": "15/02/2025",
+                    "icon": "trophy",
+                    "level": "intermediário"
+                },
+                {
+                    "id": "3",
+                    "courseName": "Git e GitHub",
+                    "description": "Fluxos de versionamento e colaboração",
+                    "category": "Ferramentas",
+                    "hours": 8,
+                    "completedDate": "20/02/2025",
+                    "icon": "star",
+                    "level": "iniciante"
+                }
             ],
 
             "notifications": [
@@ -187,7 +216,28 @@
                 }
             ],
 
-            "achievements": [],
+            "achievements": [
+                {
+                    "id": "1",
+                    "courseName": "UX/UI Design Fundamentals",
+                    "description": "Princípios de experiência e interface do usuário",
+                    "category": "Design",
+                    "hours": 18,
+                    "completedDate": "11/03/2025",
+                    "icon": "medal",
+                    "level": "iniciante"
+                },
+                {
+                    "id": "2",
+                    "courseName": "Figma Avançado",
+                    "description": "Criação de protótipos profissionais",
+                    "category": "Design",
+                    "hours": 22,
+                    "completedDate": "20/04/2025",
+                    "icon": "trophy",
+                    "level": "intermediário"
+                }
+            ],
 
             "notifications": [],
 
@@ -287,7 +337,36 @@
             ],
 
             "achievements": [
-                { "id": 1, "name": "Lançou sua primeira API pública", "date": "2025-01-05" }
+                {
+                    "id": "1",
+                    "courseName": "Node.js Avançado",
+                    "description": "APIs performáticas e escaláveis",
+                    "category": "Backend",
+                    "hours": 40,
+                    "completedDate": "05/01/2025",
+                    "icon": "trophy",
+                    "level": "intermediário"
+                },
+                {
+                    "id": "2",
+                    "courseName": "SQL Expert",
+                    "description": "Consultas otimizadas e modelagem avançada",
+                    "category": "Banco de Dados",
+                    "hours": 25,
+                    "completedDate": "02/02/2025",
+                    "icon": "star",
+                    "level": "avançado"
+                },
+                {
+                    "id": "3",
+                    "courseName": "APIs REST com Express",
+                    "description": "Primeira API pública criada com sucesso",
+                    "category": "Backend",
+                    "hours": 12,
+                    "completedDate": "10/01/2025",
+                    "icon": "medal",
+                    "level": "iniciante"
+                }
             ],
 
             "notifications": [

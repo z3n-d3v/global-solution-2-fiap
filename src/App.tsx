@@ -12,6 +12,7 @@ import { ResumeReview } from "./components/pages/ResumeReview";
 import { Dashboard } from "./components/pages/Dashboard";
 import { Courses } from "./components/pages/Courses";
 import Workflows from "./components/pages/Workflows";
+import { AchievementsPage } from "./components/pages/Achievements";
 
 function AppContent() {
   const navigate = useNavigate();
@@ -26,7 +27,6 @@ function AppContent() {
           <Route path="/onboarding" element={<OnboardingForm onNavigate={handleNavigate} />} />
           <Route path="/resume-builder" element={<ResumeBuilder onNavigate={handleNavigate} />} />
           <Route path="/resume-review" element={<ResumeReview onNavigate={handleNavigate} />} />
-          <Route path="/workflows" element={<Workflows onNavigate={handleNavigate} />} />
         </Route>
 
         <Route path="/auth" element={<Auth onNavigate={handleNavigate} />} />
@@ -34,6 +34,8 @@ function AppContent() {
         <Route element={<AppLayout />}>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/courses" element={<Courses />} />
+          <Route path="/achievements" element={<AchievementsPage />} />
+          <Route path="/workflows" element={<Workflows onNavigate={handleNavigate} />} />
         </Route>
 
       </Routes>
