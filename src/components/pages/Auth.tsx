@@ -40,7 +40,12 @@ export function Auth({ onNavigate, onLogin }: AuthProps) {
       login(foundUser);
       toast.success("Login realizado com sucesso!");
       onLogin?.();
-      onNavigate?.('/dashboard');
+
+      if (foundUser.new_user) {
+        onNavigate?.('/resume-builder');
+      } else {
+        onNavigate?.('/dashboard');
+      }
     } else {
       toast.error("Email ou senha incorretos!");
     }

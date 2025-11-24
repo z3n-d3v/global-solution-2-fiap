@@ -8,7 +8,7 @@ import {
 } from "lucide-react";
 import { Button } from "../ui/button";
 import { Card, CardContent } from "../ui/card";
-import { ImageWithFallback } from "../figma/ImageWithFallback";
+import { ImageWithFallback } from "../ui/ImageWithFallback";
 
 interface HomeProps {
   onNavigate?: (path: string) => void;
@@ -62,25 +62,30 @@ export function Home({ onNavigate }: HomeProps) {
   ];
 
   const team = [
-    {
-      name: "Ana Silva",
-      role: "Product Manager",
-      image: "https://images.unsplash.com/photo-1689600944138-da3b150d9cb8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3b21hbiUyMHByb2Zlc3Npb25hbCUyMGhlYWRzaG90fGVufDF8fHx8MTc2MzMyNDYxN3ww&ixlib=rb-4.1.0&q=80&w=1080"
+      {
+      name: "Alvaro Gama Bastos Rangel",
+      role: "DEV",
+      image: "https://avatars.githubusercontent.com/u/22877580?v=4"
     },
     {
-      name: "Carlos Santos",
-      role: "Lead Developer",
-      image: "https://images.unsplash.com/photo-1624835589323-442670703bc0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtYW4lMjBidXNpbmVzcyUyMHBvcnRyYWl0fGVufDF8fHx8MTc2MzQxMzcwOXww&ixlib=rb-4.1.0&q=80&w=1080"
+      name: "Julia Vitoria da Luz",
+      role: "DEV",
+      image: "https://avatars.githubusercontent.com/u/106891342?v=4"
     },
     {
-      name: "Maria Costa",
-      role: "UX Designer",
-      image: "https://images.unsplash.com/photo-1762307125835-fbbd0450b8a8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjB0ZWFtJTIwcG9ydHJhaXR8ZW58MXx8fHwxNzYzNDExOTY1fDA&ixlib=rb-4.1.0&q=80&w=1080"
+      name: "Michael Stephan Silva Gebenlian",
+      role: "DEV",
+      image: "https://avatars.githubusercontent.com/u/101657773?v=4"
     },
     {
-      name: "Pedro Oliveira",
-      role: "Data Scientist",
-      image: "https://images.unsplash.com/photo-1624555130296-e551faf8969b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkaXZlcnNlJTIwdGVhbSUyMHdvcmtpbmd8ZW58MXx8fHwxNzYzMzMxOTgxfDA&ixlib=rb-4.1.0&q=80&w=1080"
+      name: "Murillo Mendes Rodrigues",
+      role: "DEV",
+      image: "https://avatars.githubusercontent.com/u/127780464?v=4"
+    },
+    {
+      name: "Rafael Costa dos Santos",
+      role: "DEV",
+      image: "https://avatars.githubusercontent.com/u/211257986?v=4"
     }
   ];
 
@@ -191,7 +196,7 @@ export function Home({ onNavigate }: HomeProps) {
             {team.map((member, index) => (
               <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow">
                 <div className="aspect-square overflow-hidden">
-                  <ImageWithFallback
+                  <img
                     src={member.image}
                     alt={member.name}
                     className="w-full h-full object-cover"

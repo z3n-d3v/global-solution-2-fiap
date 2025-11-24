@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState } from "react";
 import { User } from "@/types/User";
+import { useNavigate } from "react-router-dom";
 
 interface AuthContextType {
   user: User | null;
@@ -11,6 +12,8 @@ interface AuthContextType {
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
+  const navigate = useNavigate();
+
   const [user, setUser] = useState<User | null>(null);
 
   function login(selectedUser: User) {
@@ -19,6 +22,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
   function logout() {
     setUser(null);
+    navigate('/');
   }
 
   return (
